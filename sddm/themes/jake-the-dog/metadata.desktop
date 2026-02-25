@@ -1,0 +1,11 @@
+[SddmGreeterTheme]
+Name=sddm-astronaut-jake-the-dog
+Description=Astronaut theme with Jake the Dog background
+Author=keyitdev
+Type=sddm-theme
+Version=1.3
+ConfigFile=theme.conf
+MainScript=Main.qml
+Theme-Id=sddm-astronaut-jake-the-dog
+Theme-API=2.0
+QtVersion=6
