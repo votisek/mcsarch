@@ -14,4 +14,4 @@ theme=gum choose 'minimal' 'minecraft' 'sakura' 'jake-the-dog' 'japanese-aesthet
 
 echo "[Theme]\nCurrent=$theme" > /etc/sddm.conf.d/theme.conf
 echo "Theme applied!"
-echo "All themes were taken from the authors mentioned in the metadata.desktop in each theme folder. Make sure to check them all!"
+echo "All themes were taken from the authors mentioned in the metadata.desktop in each theme folder. Make sure to check them all!"#!/usr/bin/zsh
