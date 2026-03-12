@@ -9,9 +9,8 @@
 
   "clock": {
     "format": "{:%H:%M}",
-    "format-alt": "{:%A, %d. %m. %Y}",
     "tooltip": true,
-    "tooltip-format": "{:%A}\n{:%d. %m. %Y}" 
+    "tooltip-format": "{:%c}" 
   },
 
   "battery": {
