@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+if  ping -c 1 1.1.1.1 &> /dev/null; then
+    echo "Downloading latest configurations..."
+    mkdir -p ./mcsarch/
+    git clone --single-branch --branch config https://github.com/votisek/mcsarch.git ./mcsarch/ &> /dev/null
+else
+    echo "No internet connection. Please connect to the internet and try again."
+    exit 1
+fi
+
+gum style --bold "This script will install the MCSArch Linux system on your computer. Please make sure you have backed up any important data before proceeding."
+
+if ! gum confirm --affirmative="Continue" --negative="Exit"; then
+    echo "Once you are ready, run install again."
+    exit 0
+fi
+
+gum style --bold "Select your desktop environment. Choose from the following options. Descriptions for each option can be seen in the Github repo."
+while true; do
+    choice=$(gum choose "Plasma" "Sway" "Jay" "Niri" "River" --header "Select your preffered desktop environment:" )
+    
+    gum style --bold "You chose $choice."
+
+    if gum confirm "Is it correct?"; then
+        break
+    fi
+done
+
+echo ""
+
+gum style --bold "Installing $choice..."
+
+cp -r ./mcsarch/$choice/ .
+gum style --bold --align "center" --foreground "red" "After going through the installation wizard, DO NOT REBOOT, there are additional installation steps."
+gum style --bold --align "right" --foreground "red" "We are unable to control the wizard to disable the option at this stage of the project."
+gum style --bold "Starting the main OS installation, press ENTER to proceed..."
+read 
+
+archinstall --config $choice/archinstall.json 
