@@ -3,8 +3,7 @@
   "layer": "top",
   "position": "top",
   "exclusive": true,
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
+  "modules-left": ["ext/workspaces"],
   "modules-right": ["custom/caffeine", "cpu", "pulseaudio", "backlight", "network", "bluetooth", "battery", "clock"],
 
   "clock": {
