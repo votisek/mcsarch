@@ -1,7 +1,7 @@
 PROFILE ?= mcsarch
 WORKDIR ?= work
 OUTDIR ?= out
-MKARCHISO ?= sudo mkarchiso
+MKARCHISO ?= mkarchiso
 
 .PHONY: help build clean rebuild
 
