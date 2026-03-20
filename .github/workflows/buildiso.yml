@@ -3,6 +3,7 @@ name: Build ISO
 on:
   push:
     branches: [ "main" ]
+    paths: ["mcsarch/**"]
 
 jobs:
   build:
