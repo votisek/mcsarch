@@ -4,6 +4,9 @@ on:
   push:
     branches: [ "main" ]
     paths: ["mcsarch/**"]
+  pull_request:
+    branches: [ "main" ]
+    paths: [ "mcsarch/**" ]
 
 jobs:
   build:
