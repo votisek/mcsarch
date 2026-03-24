@@ -8,6 +8,7 @@ gum style --bold "Copying Jay config to new system..."
 arch-chroot /mnt mkdir -p /home/$USERNAME/.config/jay
 arch-chroot /mnt mkdir -p /home/$USERNAME/.config/waybar
 cp /root/mcsarch/Jay/config.toml /mnt/home/$USERNAME/.config/jay
+gum style --bold "Done!"
 
 /root/mcsarch/hyprlock/install.sh
 /root/mcsarch/waybar/install.sh
