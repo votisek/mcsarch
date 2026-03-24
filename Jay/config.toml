@@ -145,11 +145,6 @@ exec = "waybar"
 
 ### KEYMAPS ###
 
-keymap = """
-    xkb_keymap {
-        xkb_keycodes { include "evdev+aliases(qwerty)" };
-        xkb_types    { include "complete+numpad(mac)"              };
-        xkb_compat   { include "complete"              };
-        xkb_symbols  { include "pc+us+inet(evdev)+fkeys(basic_13-24)"     };
-    };
-    """
+keymap.rmlvo = {
+    layout = "us"
+}
