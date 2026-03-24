@@ -17,7 +17,7 @@ fi
 
 gum style --bold "Select your desktop environment. Choose from the following options. Descriptions for each option can be seen in the Github repo."
 while true; do
-    choice=$(gum choose "Plasma" "Sway" "Jay" "Niri" "River" --header "Select your preffered desktop environment:" )
+    choice=$(gum choose "Plasma" "Sway" "Jay" "Niri" --header "Select your preffered desktop environment:" )
     
     gum style --bold "You chose $choice."
 
