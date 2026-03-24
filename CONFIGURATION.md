@@ -1,17 +1,49 @@
-# CONFIGURATION
+# Configuration
 
-This is a file containing instructions for potential future configuration of your desktop.
+This file is contains configuration instructions for the most personalized aspects of the desktop environment. If you want to configure something not specified here, check the following links:
 
-The files are split into sections, indicated by the `### SECTION ###` line and the beginning of other sections.
+- [Jay](https://mahkoh.github.io/jay/book/introduction.html)
+- KDE Plasma: Has a fairly easy settings menu
+- [Niri](https://niri-wm.github.io/niri/)
+- [Sway](https://github.com/swaywm/sway/wiki)
+The files are split into sections, indicated by `### SECTION ###`.
 
-## Jay
+### Monitor configuration (### OUTPUTS ###)
 
-Jay has a default and a basic configuration containing basic functionality. You can find the config file in `~/.config/jay/config.toml`. The first thing you should do, is change your monitor configuration, since the default is a single monitor layout with auto-detection.
+#### [Jay](https://mahkoh.github.io/jay/book/configuration/outputs.html)
 
-### Monitor configuration
+#### KDE Plasma
 
-The monitor configuration is located in the output section of the file. There is already a default monitor for you to copy the configuration of, but if you use multiple monitors, you will have to add more monitor configurations.
+To configure monitors in KDE Plasma, go to System Settings > Display and Monitor. Here you can arrange your monitors, set their resolutions, and configure other display settings.
 
-Additional settings are needed for different resolutions and refresh rates. Here are additional settings to add to the montior configuration:
+#### [Sway](https://github.com/swaywm/sway/wiki#display-configuration)
 
-- `match.connector = "HDMI-A-1"` - 
+#### [Niri](https://niri-wm.github.io/niri/Configuration%3A-Outputs.html)
+
+### Input devices (### INPUTS ###)
+
+#### [Jay](https://mahkoh.github.io/jay/book/configuration/inputs.html)
+
+#### KDE Plasma
+
+To configure input devices in KDE Plasma, go to System Settings > Input Devices. Here you can configure settings for your keyboard, mouse, touchpad, and other input devices.
+
+#### [Sway](https://github.com/swaywm/sway/wiki#input-configuration)
+
+#### [Niri](https://niri-wm.github.io/niri/Configuration%3A-Input.html)
+
+### Keymaps (### KEYMAP ###)
+
+#### [Jay](https://mahkoh.github.io/jay/book/configuration/keymaps.html)
+
+#### KDE Plasma
+
+The instructions are specified in the Input Configuration section.
+
+#### Sway
+
+The instructions are specified in the Input Configuration section.
+
+#### Niri
+
+The instructions are specified in the Input Configuration section.
