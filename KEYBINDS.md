@@ -65,6 +65,14 @@ Mod is usually the windows key on your keyboard
 
 `Mod+L` or `Mod+Right` - moves focus to the right
 
+`Mod+Shift+H` or `Mod+Shift+Left` - moves the focused window to the left
+
+`Mod+Shift+J` or `Mod+Shift+Down` - moves the focused window down
+
+`Mod+Shift+K` or `Mod+Shift+Up` - moves the focused window up
+
+`Mod+Shift+L` or `Mod+Shift+Right` - moves the focused window to the right
+
 ## Applications
 
 `Mod+Enter` - opens a terminal
@@ -85,13 +93,17 @@ Mod is usually the windows key on your keyboard
 
 `Mod+O` - locks the screen
 
-`Mod+Shift+L` - logs out of the current session
+`Mod+M` - logs out of the current session
 
-`Mod+Shift+S` - Screenshots the selected area
+`Mod+Shift+S` - Opens a screenshot UI
 
 `Mod+R` - reloads configuration
 
 ## WM specific
+
+### Niri
+
+Because niri is a scrolling manager, it has the window focus and moving keybinds also with scrolling. So `Mod+Up` does the same thing as `Mod+ScrollUp` and so on.
 
 ### Jay
 

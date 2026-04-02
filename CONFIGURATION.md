@@ -47,3 +47,12 @@ The instructions are specified in the Input Configuration section.
 #### Niri
 
 The instructions are specified in the Input Configuration section.
+
+### Decorations (### DECORATIONS ###)
+
+On all options, you can configure the decoration settings in the decoration section.
+
+On KDE, you can configure stuff in System Settings > Appearance.
+
+>[!NOTE]
+> In later versions there will be more documentation about this.
