@@ -4,14 +4,8 @@
 gfx-api = "Vulkan"
 
 idle.minutes = 10
-on-idle = [
-    {
-        type = "exec",
-        exec = {
-            prog = "hyprlock",
-            privileged = false
-        }
-    }
+on-idle = [ 
+    { type = "exec", exec = { prog = "hyprlock", privileged = false } }
 ]
 
 workspace-display-order = "sorted"
@@ -79,13 +73,22 @@ logo-f          = "toggle-floating"
 logo-q          = "close"
 
 logo-h          = "focus-left"
-logo-Left       = "focus-left"
 logo-j          = "focus-down"
-logo-Down       = "focus-down"
 logo-k          = "focus-up"
-logo-Up         = "focus-up"
 logo-l          = "focus-right"
+logo-Left       = "focus-left"
+logo-Down       = "focus-down"
+logo-Up         = "focus-up"
 logo-Right      = "focus-right"
+
+logo-shift-h    = "move-left"
+logo-shift-j    = "move-down"
+logo-shift-k    = "move-up"
+logo-shift-l    = "move-right"
+logo-shift-Left = "move-left"
+logo-shift-Down = "move-down"
+logo-shift-Up   = "move-up"
+logo-shift-Right= "move-right"
 
 ## Applications
 
@@ -100,13 +103,13 @@ logo-shift-p    = { type = "exec", exec = "wlogout" }
 ## Misc
 
 logo-o          = { type = "exec", exec = "hyprlock" }
-logo-shift-l    = "quit"
+logo-m          = "quit"
 logo-shift-s    = { type = "exec", exec = { prog = "bash", args = [ "-lc", 'grim -g "$(slurp -d)" - | swappy -f - -o - | wl-copy' ], privileged = true } }
 logo-r          = "reload-config-toml"
 
 logo-c          = "open-control-center" 
 
-### THEME ###
+### DECORATIONS ###
 
 [theme]
 border-width = 3
@@ -116,7 +119,7 @@ bar-separator-width = 3
 separator-color = "#a7c080"
 
 bg-color = "#272e33"
-focused-title-bg-color = "#350030"
+focused-title-bg-color = "#145e0b"
 focused-title-text-color = "#EEEEEE"
 unfocused-title-bg-color = "#000000"
 unfocused-title-text-color = "#999999"
@@ -145,6 +148,4 @@ exec = "waybar"
 
 ### KEYMAPS ###
 
-keymap.rmlvo = {
-    layout = "us"
-}
+keymap.rmlvo = { layout = "us" }
