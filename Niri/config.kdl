@@ -1,0 +1,111 @@
+// ### OPTIONS ###
+screenshot-path "~/Pictures/Screenshots"
+prefer-no-csd
+clipboard { disable-primary }
+
+// ### OUTPUT ###
+
+// There is no way to have a wildcard connector, so you will have to configure it using the page
+
+// ### INPUT ###
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+        numlock // auto numlock on startup
+        repeat-rate 50
+        repeat-delay 200
+        track-layout "global"
+    }
+
+    mouse {
+        accel-profile "flat"        
+    }
+    mod-key "Super"
+}
+
+// ### WINDOW RULES ###
+window-rule {
+    match app-id="waywall"
+    opacity 1
+    open-on-workspace 5
+}
+
+// ### KEYBINDS ###
+binds {
+    // Workspaces
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    // Windows
+    Mod+H { focus-column-left; }
+    Mod+J { focus-window-or-workspace-down; }
+    Mod+K { focus-window-or-workspace-up; }
+    Mod+L { focus-column-right; }
+    Mod+Left { focus-column-left; }
+    Mod+Down { focus-window-or-workspace-down; }
+    Mod+Up { focus-window-or-workspace-up; }
+    Mod+Right { focus-column-right; }
+    Mod+WheelScrollLeft { focus-column-left; }
+    Mod+WheelScrollDown { focus-window-or-workspace-down; }
+    Mod+WheelScrollUp { focus-window-or-workspace-up; }
+
+    Mod+Shift+H { move-column-left-or-to-monitor-left; }
+    Mod+Shift+J { move-window-or-to-workspace-down; }
+    Mod+Shift+K { move-window-or-to-workspace-up; }
+    Mod+Shift+L { move-column-right-or-to-monitor-right; }
+    Mod+Shift+Left { move-column-left-or-to-monitor-left; }
+    Mod+Shift+Down { move-window-or-to-workspace-down; }
+    Mod+Shift+Up { move-window-or-to-workspace-up; }
+    Mod+Shift+Right { move-column-right-or-to-monitor-right; }
+    Mod+Shift+WheelScrollLeft { move-column-left-or-to-monitor-left; }
+    Mod+Shift+WheelScrollDown { move-window-or-to-workspace-down; }
+    Mod+Shift+WheelScrollUp { move-window-or-to-workspace-up; }
+    Mod+Shift+WheelScrollRight { move-column-right-or-to-monitor-right; }
+
+    Mod+Q { close-window; }
+    Mod+F { toggle-window-floating; }
+    Mod+Shift+F { maximize-window-to-edges; }
+
+    // Applications
+    Mod+Enter { spawn kitty; }
+    Mod+E { spawn thunar; }
+    Mod+R { spawn "rofi" "-show" "drun"; }
+    Mod+X { spawn "rofi" "-show"; }
+    Mod+B { spawn "firefox"; }
+    Mod+P { spawn "prismlauncher"; }
+    Mod+Shift+P { spawn "wlogout"; }
+
+    // Misc
+    Mod+O { spawn "hyprlock"; }
+    Mod+M { quit; }
+    Mod+Shift+S { screenshot; }
+    Mod+R { load-config-file; }
+}
+
+// ### DECORATIONS ###
+window-rule {
+    opacity 0.9
+    default-window-width { proportion 0.75 }
+    geometry-corner-radius 10
+
+    focus-ring {
+        width 3
+    }
+
+    border {
+        off
+        width 5
+    }
+}
+
+// ### STARTUP ###
+spawn-at-startup "waybar"
