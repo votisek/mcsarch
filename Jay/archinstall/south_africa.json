@@ -45,11 +45,19 @@
     },
     "ntp": true,
     "packages": [
-        "0ad-data",
-        "389-ds-base",
-        "3cpio",
-        "4ti2",
-        "6tunnel"
+        "git",
+        "jay",
+        "rustup",
+        "prismlauncher",
+        "waywall",
+        "discord",
+        "firefox",
+        "waybar",
+        "hyprlock",
+        "yay",
+        "cmake",
+        "thunar",
+        "nvidia-open"
     ],
     "parallel_downloads": 0,
     "profile_config": {
