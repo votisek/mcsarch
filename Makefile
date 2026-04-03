@@ -19,7 +19,7 @@ help:
 
 build:
 	@test -d "$(PROFILE)" || (echo "Missing profile directory: $(PROFILE)" && exit 1)
-	$(MKARCHISO) -v -w "$(WORKDIR)" -o "$(OUTDIR)" "$(PROFILE)"
+	$(MKARCHISO) -r -v -w "$(WORKDIR)" -o "$(OUTDIR)" "$(PROFILE)"
 
 clean:
 	rm -rf "$(WORKDIR)" "$(OUTDIR)"
