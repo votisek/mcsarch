@@ -159,7 +159,11 @@
         "yay",
         "cmake",
         "thunar",
-        "nvidia-open"
+        "nvidia-open",
+        "kitty",
+        "rofi",
+        "mako"
+
     ],
     "parallel_downloads": 0,
     "profile_config": {

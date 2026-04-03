@@ -36,28 +36,9 @@
         ],
         "custom_servers": [],
         "mirror_regions": {
-            "Russia": [
-                "http://mirror.yandex.ru/archlinux/$repo/os/$arch",
-                "https://mirror.yandex.ru/archlinux/$repo/os/$arch",
-                "http://ru.mirrors.cicku.me/archlinux/$repo/os/$arch",
-                "https://ru.mirrors.cicku.me/archlinux/$repo/os/$arch",
-                "http://mirror.truenetwork.ru/archlinux/$repo/os/$arch",
-                "https://mirror.truenetwork.ru/archlinux/$repo/os/$arch",
-                "http://mirrors.powernet.com.ru/archlinux/$repo/os/$arch",
-                "http://repository.su/archlinux/$repo/os/$arch",
-                "https://repository.su/archlinux/$repo/os/$arch",
-                "http://mirror.nw-sys.ru/archlinux/$repo/os/$arch",
-                "https://mirror.nw-sys.ru/archlinux/$repo/os/$arch",
-                "http://mirror.kamtv.ru/archlinux/$repo/os/$arch",
-                "https://mirror.kamtv.ru/archlinux/$repo/os/$arch",
-                "http://mirror.kpfu.ru/archlinux/$repo/os/$arch",
-                "https://mirror.kpfu.ru/archlinux/$repo/os/$arch",
-                "http://archlinux.gay/archlinux/$repo/os/$arch",
-                "https://archlinux.gay/archlinux/$repo/os/$arch",
-                "http://vlst.su/archlinux/$repo/os/$arch",
-                "https://vlst.su/archlinux/$repo/os/$arch",
-                "http://mirror.cachy-arch.ru/archlinux/$repo/os/$arch",
-                "https://mirror.cachy-arch.ru/archlinux/$repo/os/$arch"
+            "Morocco": [
+                "http://mirror.abderraziq.com/archlinux/$repo/os/$arch",
+                "https://mirror.abderraziq.com/archlinux/$repo/os/$arch"
             ]
         },
         "optional_repositories": [ "multilib" ]
@@ -76,7 +57,10 @@
         "yay",
         "cmake",
         "thunar",
-        "nvidia-open"
+        "nvidia-open",
+        "kitty",
+        "rofi",
+        "mako"
     ],
     "parallel_downloads": 0,
     "profile_config": {
