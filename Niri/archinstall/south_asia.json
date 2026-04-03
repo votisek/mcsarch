@@ -1,0 +1,100 @@
+{
+    "app_config": {
+        "audio_config": {
+            "audio": "pipewire"
+        },
+        "bluetooth_config": {
+            "enabled": true
+        },
+        "print_service_config": {
+            "enabled": true
+        }
+    },
+    "archinstall-language": "English",
+    "auth_config": {},
+    "bootloader_config": {
+        "bootloader": "Grub",
+        "removable": false,
+        "uki": false
+    },
+    "custom_commands": [],
+    "hostname": "mcsarch",
+    "kernels": [ "linux-lts" ],
+    "locale_config": {
+        "kb_layout": "us",
+        "sys_enc": "UTF-8",
+        "sys_lang": "en_US.UTF-8"
+    },
+    "mirror_config": {
+        "custom_repositories": [
+            {
+                "name": "MCSaRch",
+                "sign_check": "Optional",
+                "sign_option": "TrustAll",
+                "url": "https://repo.votisek.dev"
+            }
+        ],
+        "custom_servers": [],
+        "mirror_regions": {
+            "India": [
+                "http://in.mirrors.cicku.me/archlinux/$repo/os/$arch",
+                "https://in.mirrors.cicku.me/archlinux/$repo/os/$arch",
+                "https://mirror.del2.albony.in/archlinux/$repo/os/$arch",
+                "https://mirror.maa.albony.in/archlinux/$repo/os/$arch",
+                "http://mirror.sahil.world/archlinux/$repo/os/$arch",
+                "https://mirror.sahil.world/archlinux/$repo/os/$arch",
+                "http://mirrors.nxtgen.com/archlinux-mirror/$repo/os/$arch",
+                "https://mirrors.nxtgen.com/archlinux-mirror/$repo/os/$arch",
+                "https://mirrors.abhy.me/archlinux/$repo/os/$arch",
+                "http://mirror.4v1.in/archlinux/$repo/os/$arch",
+                "https://mirror.4v1.in/archlinux/$repo/os/$arch",
+                "https://in.arch.niranjan.co/$repo/os/$arch",
+                "http://mirrors.saswata.cc/archlinux/$repo/os/$arch",
+                "https://mirrors.saswata.cc/archlinux/$repo/os/$arch",
+                "https://archlinux.kushwanthreddy.com/$repo/os/$arch",
+                "https://mirror.dawn.org.in/arch/$repo/os/$arch",
+                "https://mirror.bom.kat.cx/archlinux/$repo/os/$arch"
+            ]
+        },
+        "optional_repositories": [ "multilib" ]
+    },
+    "ntp": true,
+    "packages": [
+        "git",
+        "niri",
+        "prismlauncher",
+        "waywall",
+        "discord",
+        "firefox",
+        "waybar",
+        "hyprlock",
+        "yay",
+        "cmake",
+        "thunar",
+        "nvidia-open",
+        "kitty",
+        "rofi",
+        "xwayland-sattelite",
+        "mako",
+        "awww"
+
+    ],
+    "parallel_downloads": 0,
+    "profile_config": {
+        "gfx_driver": null,
+        "greeter": "sddm",
+        "profile": {
+            "custom_settings": {},
+            "details": [],
+            "main": "Minimal"
+        }
+    },
+    "script": null,
+    "services": [],
+    "swap": {
+        "algorithm": "zstd",
+        "enabled": true
+    },
+    "timezone": "UTC",
+    "version": "4.1"
+}

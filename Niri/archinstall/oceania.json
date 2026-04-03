@@ -1,0 +1,94 @@
+{
+    "app_config": {
+        "audio_config": {
+            "audio": "pipewire"
+        },
+        "bluetooth_config": {
+            "enabled": true
+        },
+        "print_service_config": {
+            "enabled": true
+        }
+    },
+    "archinstall-language": "English",
+    "auth_config": {},
+    "bootloader_config": {
+        "bootloader": "Grub",
+        "removable": false,
+        "uki": false
+    },
+    "custom_commands": [],
+    "hostname": "mcsarch",
+    "kernels": [ "linux-lts" ],
+    "locale_config": {
+        "kb_layout": "us",
+        "sys_enc": "UTF-8",
+        "sys_lang": "en_US.UTF-8"
+    },
+    "mirror_config": {
+        "custom_repositories": [
+            {
+                "name": "MCSaRch",
+                "sign_check": "Optional",
+                "sign_option": "TrustAll",
+                "url": "https://repo.votisek.dev"
+            }
+        ],
+        "custom_servers": [],
+        "mirror_regions": {
+            "Australia": [
+                "https://mirror.aarnet.edu.au/pub/archlinux/$repo/os/$arch",
+                "http://ftp.swin.edu.au/archlinux/$repo/os/$arch",
+                "http://syd.mirror.rackspace.com/archlinux/$repo/os/$arch",
+                "https://syd.mirror.rackspace.com/archlinux/$repo/os/$arch",
+                "http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch",
+                "https://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch",
+                "http://au.mirrors.cicku.me/archlinux/$repo/os/$arch",
+                "https://au.mirrors.cicku.me/archlinux/$repo/os/$arch",
+                "http://gsl-syd.mm.fcix.net/archlinux/$repo/os/$arch",
+                "https://gsl-syd.mm.fcix.net/archlinux/$repo/os/$arch",
+                "https://au.arch.niranjan.co/$repo/os/$arch"
+            ]
+        },
+        "optional_repositories": [ "multilib" ]
+    },
+    "ntp": true,
+    "packages": [
+        "git",
+        "niri",
+        "prismlauncher",
+        "waywall",
+        "discord",
+        "firefox",
+        "waybar",
+        "hyprlock",
+        "yay",
+        "cmake",
+        "thunar",
+        "nvidia-open",
+        "kitty",
+        "rofi",
+        "xwayland-sattelite",
+        "mako",
+        "awww"
+
+    ],
+    "parallel_downloads": 0,
+    "profile_config": {
+        "gfx_driver": null,
+        "greeter": "sddm",
+        "profile": {
+            "custom_settings": {},
+            "details": [],
+            "main": "Minimal"
+        }
+    },
+    "script": null,
+    "services": [],
+    "swap": {
+        "algorithm": "zstd",
+        "enabled": true
+    },
+    "timezone": "UTC",
+    "version": "4.1"
+}
