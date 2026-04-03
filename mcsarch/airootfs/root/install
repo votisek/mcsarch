@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 if  ping -c 1 1.1.1.1 &> /dev/null; then
-    echo "Downloading latest configurations..."
-    mkdir -p ./mcsarch/
+    gum style --bold "Downloading latest configurations..."
+    mkdir -p ./mcsarch/ 
     git clone --single-branch --branch config https://github.com/votisek/mcsarch.git ./mcsarch/ &> /dev/null
 else
-    echo "No internet connection. Please connect to the internet and try again."
+    gum style --bold --foreground "red" "No internet connection. Please connect to the internet and try again."
     exit 1
 fi
 
@@ -15,25 +15,73 @@ if ! gum confirm --affirmative="Continue" --negative="Exit"; then
     exit 0
 fi
 
+while true; do
+    region=$(gum choose --header "Select your region:" "North America (Canada)" "South America (Brazil)" "Europe (Germany)" "North Asia (Russia)" "South Asia (India)" "North Africa (Morroco) " "South Africa (South African Republic)" "Oceania (Australia)")
+
+    gum style --bold "You chose $region."
+    if gum confirm "Is it correct?"; then
+        break
+    fi
+done
+
+case $region in
+    "North America (Canada)")
+        region="north_america"
+        ;;
+    "South America (Brazil)")
+        region="south_america"
+        ;;
+    "Europe (Germany)")
+        region="europe"
+        ;;
+    "North Asia (Russia)")
+        region="north_asia"
+        ;;
+    "South Asia (India)")
+        region="south_asia"
+        ;;
+    "North Africa (Morroco) ")
+        region="north_africa"
+        ;;
+    "South Africa (South African Republic)")
+        region="south_africa"
+        ;;
+    "Oceania (Australia)")
+        region="oceania"
+        ;;
+esac
+
 gum style --bold "Select your desktop environment. Choose from the following options. Descriptions for each option can be seen in the Github repo."
 while true; do
-    choice=$(gum choose "Plasma" "Jay" "Niri" --header "Select your preferred desktop environment:" )
+    dm=$(gum choose "Plasma" "Jay" "Niri" --header "Select your preferred desktop environment:" )
     
-    gum style --bold "You chose $choice."
+    gum style --bold "You chose $dm."
 
     if gum confirm "Is it correct?"; then
         break
     fi
 done
 
+
 echo ""
 
-gum style --bold "Installing $choice..."
+gum style --bold "Installing $dm..."
 
-cp -r ./mcsarch/$choice/ .
+cp -r ./mcsarch/$dm/ .
 gum style --bold --align "center" --foreground "red" "After going through the installation wizard, DO NOT REBOOT, there are additional installation steps."
 gum style --bold --align "right" --foreground "red" "We are unable to control the wizard to disable the option at this stage of the project."
 gum style --bold "Starting the main OS installation, press ENTER to proceed..."
 read 
 
-archinstall --config $choice/archinstall.json 
+if hostnamectl chassis | grep "desktop" &> /dev/null; then
+    sed -i '22s/.*/    "kernels": [ "linux-zen" ]/' $dm/archinstall/$region.json
+fi
+
+archinstall --config $dm/archinstall/$region.json 
+
+chmod +x $dm/install.sh
+$dm/install.sh
+
+gum style --bold "Installation complete! Rebooting your system in 10 seconds to start using MCSArch Linux. Thank you for installing MCSArch Linux, we hope you enjoy it!"
+sleep 10
+reboot
