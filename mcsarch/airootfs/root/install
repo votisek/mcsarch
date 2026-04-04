@@ -80,7 +80,8 @@ if hostnamectl chassis | grep "desktop" &> /dev/null; then
     sed -i '22s/.*/    "kernels": [ "linux-zen" ]/' $dm/archinstall/$region.json
 fi
 
-sed -i "83s/.*/    "timezone": \"$(curl -s https://ipapi.co/timezone)\"/" $dm/archinstall/$region.json
+timezone=$(curl -s https://ipapi.co/timezone)
+sed -i "83s|.*|    \"timezone\": \"${timezone}\"|" "$dm/archinstall/$region.json"
 
 if archinstall --config $dm/archinstall/$region.json; then
     gum style --bold "OS installation complete! Starting desktop environment installation..."
