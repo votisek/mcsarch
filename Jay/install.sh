@@ -7,7 +7,7 @@ arch-chroot /mnt chown -R $USERNAME:$USERNAME /home/$USERNAME
 gum style --bold "Copying Jay config to new system..."
 arch-chroot /mnt mkdir -p /home/$USERNAME/.config/jay
 cp /root/mcsarch/Jay/config.toml /mnt/home/$USERNAME/.config/jay
-cp /root/mcsarch/Jay/jay.destop /mnt/usr/share/wayland-sessions/
+cp /root/mcsarch/Jay/jay.desktop /mnt/usr/share/wayland-sessions/
 gum style --bold "Done!"
 
 chmod +x /root/mcsarch/sddm/install.sh
