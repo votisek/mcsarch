@@ -53,11 +53,14 @@ esac
 
 gum style --bold "Select your desktop environment. Choose from the following options. Descriptions for each option can be seen in the Github repo."
 while true; do
-    dm=$(gum choose "Plasma" "Jay" "Niri" --header "Select your preferred desktop environment:" )
+    dm=$(gum choose "Plasma (Recommended)" "Jay" "Niri" --header "Select your preferred desktop environment:" )
     
     gum style --bold "You chose $dm."
 
     if gum confirm "Is it correct?"; then
+        if [ "$dm" == "Plasma (Recommended)" ]; then
+            dm="Plasma"
+        fi
         break
     fi
 done
@@ -77,7 +80,12 @@ if hostnamectl chassis | grep "desktop" &> /dev/null; then
     sed -i '22s/.*/    "kernels": [ "linux-zen" ]/' $dm/archinstall/$region.json
 fi
 
-archinstall --config $dm/archinstall/$region.json 
+if archinstall --config $dm/archinstall/$region.json; then
+    gum style --bold "OS installation complete! Starting desktop environment installation..."
+else
+    gum style --bold --foreground "red" "OS installation failed. Please check the error messages above and try again."
+    exit 1
+fi
 
 chmod +x $dm/install.sh
 $dm/install.sh
