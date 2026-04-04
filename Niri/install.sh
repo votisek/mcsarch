@@ -9,6 +9,10 @@ arch-chroot /mnt mkdir -p /home/$USERNAME/.config/niri
 cp /root/mcsarch/Niri/config.kdl /mnt/home/$USERNAME/.config/niri
 gum style --bold "Done!"
 
+
+chmod +x /root/mcsarch/sddm/install.sh
+chmod +x /root/mcsarch/hyprlock/install.sh
+chmod +x /root/mcsarch/waybar/install.sh
 /root/mcsarch/hyprlock/install.sh
 /root/mcsarch/waybar/install.sh
 /root/mcsarch/sddm/install.sh

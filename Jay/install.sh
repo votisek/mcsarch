@@ -9,6 +9,9 @@ arch-chroot /mnt mkdir -p /home/$USERNAME/.config/jay
 cp /root/mcsarch/Jay/config.toml /mnt/home/$USERNAME/.config/jay
 gum style --bold "Done!"
 
+chmod +x /root/mcsarch/sddm/install.sh
+chmod +x /root/mcsarch/hyprlock/install.sh
+chmod +x /root/mcsarch/waybar/install.sh
 /root/mcsarch/hyprlock/install.sh
 /root/mcsarch/waybar/install.sh
 /root/mcsarch/sddm/install.sh
