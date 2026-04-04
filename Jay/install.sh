@@ -10,11 +10,4 @@ cp /root/mcsarch/Jay/config.toml /mnt/home/$USERNAME/.config/jay
 cp /root/mcsarch/Jay/jay.desktop /mnt/usr/share/wayland-sessions/
 gum style --bold "Done!"
 
-chmod +x /root/mcsarch/sddm/install.sh
-chmod +x /root/mcsarch/hyprlock/install.sh
-chmod +x /root/mcsarch/waybar/install.sh
-chmod +x /root/mcsarch/kitty/install.sh
-/root/mcsarch/hyprlock/install.sh
-/root/mcsarch/waybar/install.sh
-/root/mcsarch/sddm/install.sh
-/root/mcsarch/kitty/install.sh
+/root/mcsarch/core.sh 
