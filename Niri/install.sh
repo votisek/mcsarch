@@ -13,6 +13,8 @@ gum style --bold "Done!"
 chmod +x /root/mcsarch/sddm/install.sh
 chmod +x /root/mcsarch/hyprlock/install.sh
 chmod +x /root/mcsarch/waybar/install.sh
+chmod +x /root/mcsarch/kitty/install.sh
 /root/mcsarch/hyprlock/install.sh
 /root/mcsarch/waybar/install.sh
 /root/mcsarch/sddm/install.sh
+/root/mcsarch/kitty/install.sh
