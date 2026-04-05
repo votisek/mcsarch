@@ -5,6 +5,10 @@ chmod +x /root/mcsarch/prismlauncher/install.sh
 ./root/mcsarch/sddm/install.sh
 ./root/mcsarch/waywall/install.sh
 ./root/mcsarch/prismlauncher/install.sh
+arch-chroot /mnt usermod -aG seat,video,input $USERNAME
+arch-chroot /mnt chown -R $USERNAME:$USERNAME /home/$USERNAME 
+arch-chroot /mnt chown -R $USERNAME:$USERNAME /home/$USERNAME/.local
+arch-chroot /mnt mkdir -p /home/$USERNAME/.config
 
 # Packages that everything except KDE will have
 if [ $1 != "Plasma" ]; then
