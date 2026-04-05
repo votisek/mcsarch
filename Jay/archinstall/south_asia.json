@@ -70,6 +70,7 @@
         "waybar",
         "hyprlock",
         "yay",
+        "seatd",
         "cmake",
         "thunar",
         "nvidia-open",
