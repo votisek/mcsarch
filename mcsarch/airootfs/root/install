@@ -77,7 +77,7 @@ gum style --bold "Starting the main OS installation, press ENTER to proceed..."
 read 
 
 if hostnamectl chassis | grep "desktop" &> /dev/null; then
-    sed -i '22s/.*/    "kernels": [ "linux-zen" ]/' $dm/archinstall/$region.json
+    sed -i '22s/.*/    "kernels": [ "linux-zen" ],/' $dm/archinstall/$region.json
 fi
 
 timezone=$(curl -s https://ipapi.co/timezone)
