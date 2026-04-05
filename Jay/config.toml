@@ -148,4 +148,4 @@ exec = "waybar"
 
 ### KEYMAPS ###
 
-keymap.rmlvo = { layout = "us" }
+keymap.rmlvo = { layout = "cz" }

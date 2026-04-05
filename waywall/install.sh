@@ -3,7 +3,7 @@ USERNAME=$(arch-chroot /mnt awk -F: '$3 >= 1000 && $3 < 65534 {print $1}' /etc/p
 gum style --bold "Configuring waywall..."
 gum style --bold "Downloading Gore's Generic Config..."
 
-if [ [[ $(cat /sys/class/graphics/fb0/virtual_size) == "2560,1440" ]] && echo true || echo false ] &> /dev/null; then
+if [[ $(cat /sys/class/graphics/fb0/virtual_size) == "2560,1440" ]] && echo true || echo false &> /dev/null; then
     git clone https://github.com/arjuncgore/waywall-generic-config.git -b 1440 /mnt/home/$USERNAME/mcsarch/.config/waywall >& /dev/null
 else
     git clone https://github.com/arjuncgore/waywall-generic-config.git /mnt/home/$USERNAME/mcsarch/.config/waywall >& /dev/null
