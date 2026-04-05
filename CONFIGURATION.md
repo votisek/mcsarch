@@ -6,6 +6,7 @@ This file is contains configuration instructions for the most personalized aspec
 - KDE Plasma: Has a fairly easy settings menu
 - [Niri](https://niri-wm.github.io/niri/)
 - [Sway](https://github.com/swaywm/sway/wiki)
+
 The files are split into sections, indicated by `### SECTION ###`.
 
 ### Monitor configuration (### OUTPUTS ###)
