@@ -77,12 +77,12 @@ gum style --bold "Starting the main OS installation, press ENTER to proceed..."
 read 
 
 if hostnamectl chassis | grep "desktop" &> /dev/null; then
-    jq "kernels = linux-zen" $dm/archinstall/$region.json > /tmp/temp.json
+    jq '.kernels = ["linux-zen"]' "$dm/archinstall/$region.json" > /tmp/temp.json
     mv /tmp/temp.json $dm/archinstall/$region.json
 fi
 
 timezone=$(curl -s https://ipapi.co/timezone)
-jq "timezone = $timezone" $dm/archinstall/$region.json > /tmp/temp.json
+jq --arg timezone "$timezone" '.timezone = $timezone' "$dm/archinstall/$region.json" > /tmp/temp.json
 mv /tmp/temp.json $dm/archinstall/$region.json
 
 if archinstall --config $dm/archinstall/$region.json; then
