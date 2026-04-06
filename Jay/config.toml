@@ -140,12 +140,6 @@ on-graphics-initialized = [
     { type = "exec", exec = "mako" },
 ]
 
-### STATUS BAR ###
-
-[status]
-format = "plain"
-exec = "waybar"
-
 ### KEYMAPS ###
 
-keymap.rmlvo = { layout = "cz" }
+keymap.rmlvo = { layout = "us" }
