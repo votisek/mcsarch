@@ -6,6 +6,6 @@ arch-chroot /mnt mkdir -p /home/$USERNAME/.local/share/PrismLauncher
 cp -r /root/mcsarch/prismlauncher/prismlauncher.cfg /mnt/home/$USERNAME/.local/share/PrismLauncher/
 mkdir -p /mnt/home/$USERNAME/.local/share/PrismLauncher/instances
 mkdir -p /mnt/home/$USERNAME/.local/share/PrismLauncher/instances/MCSRRanked
-unzip /root/mcsarch/prismlauncher/MCSRRanked.zip /mnt/home/$USERNAME/.local/share/PrismLauncher/instances/MCSRRanked
+unzip /root/mcsarch/prismlauncher/MCSRRanked.zip -d /mnt/home/$USERNAME/.local/share/PrismLauncher/instances/MCSRRanked &> /dev/null
 
 gum style --bold "Prism Launcher setup complete!"
