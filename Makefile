@@ -42,9 +42,6 @@ format-drive:
 	@echo "Formatting virtual drive..."
 	@qemu-img create -f qcow2 mcsarch.qcow2 20G
 
-arch-all: build 
-	$(MAKE) test ISO="$(OUTDIR)/$$(date --date=\"@$${SOURCE_DATE_EPOCH:-$$(date +%s)}\" +%Y%m).iso"
-
 test:
 	@echo "Launching QEMU..."
 	@which qemu-system-x86_64 >/dev/null 2>&1 || (echo "qemu-system-x86_64 not found. Please install the 'qemu' package." && exit 1)
