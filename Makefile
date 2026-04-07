@@ -26,6 +26,7 @@ help:
 build:
 	@which "$(MKARCHISO)" >/dev/null 2>&1 || (echo "mkarchiso not found. Please install the 'archiso' package." && exit 1)
 	$(MKARCHISO) -r -v -w "$(WORKDIR)" -o "$(OUTDIR)" "$(PROFILE)"
+	mv "$(OUTDIR)/*" "$(ISO)"
 
 clean:
 	rm -rf "$(WORKDIR)" "$(OUTDIR)"
