@@ -18,10 +18,13 @@ git clone https://github.com/votisek/mcsarch.git && cd mcsarch
 3. Build the iso
 
 This step works only on Arch because of the required package archiso, if you don't have arch, you can download the latest build from [here](https://github.com/votisek/mcsarch/actions/runs/24008000165/artifacts/6279189839).
-To build the iso, run `sudo make build` in the root directory of the project
+
+To build the iso, run `sudo make build` in the root directory of the project.
+
 If you downloaded the iso, extract it from the zip file, then rename it to `mcsarch.iso` and place it into the root directory of the mcsarch folder.
 
 4. Run the iso
+
 To run the iso on a virtual drive, we first need to create the drive and then run it.
 
 ```bash
