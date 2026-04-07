@@ -27,7 +27,7 @@ case "$theme" in
         ;;
 esac
 
-printf "[Theme]\ntheme=%s\n" "$theme_name" > /mnt/etc/sddm.conf.d/theme.conf
+printf "[Theme]\nCurrent=%s\n" "$theme_name" > /mnt/etc/sddm.conf.d/theme.conf
 
 systemctl --root=/mnt enable sddm
 
