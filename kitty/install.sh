@@ -1,7 +1,6 @@
-USERNAME=$(arch-chroot /mnt awk -F: '$3 >= 1000 && $3 < 65534 {print $1}' /etc/passwd | head -n1)
 
 gum style --bold "Copying Kitty config to new system"
 arch-chroot /mnt pacman -S --noconfirm --needed ttf-firacode-nerd > /dev/null
-arch-chroot /mnt mkdir -p /home/$USERNAME/.config/kitty
-cp /root/mcsarch/kitty/kitty.conf /mnt/home/$USERNAME/.config/kitty
+arch-chroot /mnt mkdir -p /etc/skel/.config/kitty
+cp /root/mcsarch/kitty/kitty.conf /mnt/etc/skel/.config/kitty
 gum style --bold "Done!"

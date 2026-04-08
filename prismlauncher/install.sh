@@ -1,11 +1,10 @@
-USERNAME=$(arch-chroot /mnt awk -F: '$3 >= 1000 && $3 < 65534 {print $1}' /etc/passwd | head -n1)
 
 gum style --bold "Setting up Prism Launcher..."
 
-arch-chroot /mnt mkdir -p /home/$USERNAME/.local/share/PrismLauncher
-cp -r /root/mcsarch/prismlauncher/prismlauncher.cfg /mnt/home/$USERNAME/.local/share/PrismLauncher/
-mkdir -p /mnt/home/$USERNAME/.local/share/PrismLauncher/instances
-mkdir -p /mnt/home/$USERNAME/.local/share/PrismLauncher/instances/MCSRRanked
-unzip /root/mcsarch/prismlauncher/MCSRRanked.zip -d /mnt/home/$USERNAME/.local/share/PrismLauncher/instances/ &> /dev/null
+arch-chroot /mnt mkdir -p /etc/skel/.local/share/PrismLauncher
+cp -r /root/mcsarch/prismlauncher/prismlauncher.cfg /mnt/etc/skel/.local/share/PrismLauncher/
+mkdir -p /mnt/etc/skel/.local/share/PrismLauncher/instances
+mkdir -p /mnt/etc/skel/.local/share/PrismLauncher/instances/MCSRRanked
+unzip /root/mcsarch/prismlauncher/MCSRRanked.zip -d /mnt/etc/skel/.local/share/PrismLauncher/instances/ &> /dev/null
 
 gum style --bold "Prism Launcher setup complete!"
