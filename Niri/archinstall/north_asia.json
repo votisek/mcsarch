@@ -63,9 +63,14 @@
         "optional_repositories": [ "multilib" ]
     },
     "ntp": true,
+    "network_config": {
+        "type": "nm"
+    },
     "packages": [
         "git",
         "niri",
+        "xdg-desktop-portal-gnome",
+        "xdg-desktop-portal-gtk",
         "prismlauncher",
         "waywall",
         "discord",
@@ -74,6 +79,9 @@
         "hyprlock",
         "yay",
         "seatd",
+        "qt6-svg",
+        "qt6-virtualkeyboard",
+        "qt6-multimedia-ffmpeg",
         "cmake",
         "thunar",
         "nvidia-open",

@@ -63,6 +63,9 @@
         "optional_repositories": [ "multilib" ]
     },
     "ntp": true,
+    "network_config": {
+        "type": "nm"
+    },
     "packages": [
         "git",
         "jay",
@@ -75,6 +78,9 @@
         "hyprlock",
         "yay",
         "seatd",
+        "qt6-svg",
+        "qt6-virtualkeyboard",
+        "qt6-multimedia-ffmpeg",
         "cmake",
         "thunar",
         "nvidia-open",
