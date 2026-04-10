@@ -55,6 +55,22 @@ Mod is usually the windows key on your keyboard
 
 `Mod+Q` - closes the focused window
 
+## Hardware & Media
+
+`Volume Up` - increases volume (+5%)
+
+`Volume Down` - decreases volume (-5%)
+
+`Mute` - toggles mute state
+
+`Brightness Up` - increases screen brightness (+5%)
+
+`Brightness Down` - decreases screen brightness (-5%)
+
+`Media Play/Pause` - plays or pauses the current media
+
+`Media Next/Prev` - skips to the next or previous media track
+
 ### Move focus across windows
 
 `Mod+H` or `Mod+Left` - moves focus to the left
@@ -75,7 +91,7 @@ Mod is usually the windows key on your keyboard
 
 ## Applications
 
-`Mod+Enter` - opens a terminal
+`Mod+Space` - opens a terminal
 
 `Mod+E` - opens file manager
 
@@ -104,6 +120,7 @@ Mod is usually the windows key on your keyboard
 ### Niri
 
 Because niri is a scrolling manager, it has the window focus and moving keybinds also with scrolling. So `Mod+Up` does the same thing as `Mod+ScrollUp` and so on.
+`Mod+C` - Toggles overview mode, which shows all workspaces and windows in a grid layout
 
 ### Jay
 

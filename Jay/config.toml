@@ -95,7 +95,7 @@ logo-shift-Right= "move-right"
 logo-Return     = { type = "exec", exec = "kitty" }
 logo-e          = { type = "exec", exec = "thunar" }
 logo-d          = { type = "exec", exec = ["rofi", "-show", "drun"]}
-logo-x          = { type = "exec", exec = ["rofi", "-show"]}
+logo-x          = { type = "exec", exec = ["rofi", "-show", "window"]}
 logo-b          = { type = "exec", exec = "firefox" }
 logo-p          = { type = "exec", exec = "prismlauncher" }
 logo-shift-p    = { type = "exec", exec = "wlogout" }
@@ -108,6 +108,15 @@ logo-shift-s    = { type = "exec", exec = { prog = "bash", args = [ "-lc", 'grim
 logo-r          = "reload-config-toml"
 
 logo-c          = "open-control-center" 
+
+XF86AudioRaiseVolume  = { type = "exec", exec = ["wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "0.05+"] }
+XF86AudioLowerVolume  = { type = "exec", exec = ["wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "0.05-"] }
+XF86AudioMute         = { type = "exec", exec = ["wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle"] }
+XF86MonBrightnessUp   = { type = "exec", exec = ["brightnessctl", "s", "5%+"] }
+XF86MonBrightnessDown = { type = "exec", exec = ["brightnessctl", "s", "5%-"] }
+XF86AudioPlay         = { type = "exec", exec = ["playerctl", "play-pause"] }
+XF86AudioNext         = { type = "exec", exec = ["playerctl", "next"] }
+XF86AudioPrev         = { type = "exec", exec = ["playerctl", "previous"] }
 
 ### DECORATIONS ###
 
