@@ -92,7 +92,7 @@ logo-shift-Right= "move-right"
 
 ## Applications
 
-logo-Return     = { type = "exec", exec = "kitty" }
+logo-Space     = { type = "exec", exec = "kitty" }
 logo-e          = { type = "exec", exec = "thunar" }
 logo-d          = { type = "exec", exec = ["rofi", "-show", "drun"]}
 logo-x          = { type = "exec", exec = ["rofi", "-show", "window"]}

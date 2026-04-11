@@ -98,10 +98,10 @@ binds {
     XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "previous"; }
 
     // Applications
-    Mod+Return { spawn "kitty"; }
+    Mod+Space { spawn "kitty"; }
     Mod+E { spawn "thunar"; }
     Mod+D { spawn "rofi" "-show" "drun"; }
-    Mod+X { spawn "rofi" "-show"; }
+    Mod+X { spawn "rofi" "-show" "window"; }
     Mod+B { spawn "firefox"; }
     Mod+P { spawn "prismlauncher"; }
     Mod+Shift+P { spawn "wlogout"; }
