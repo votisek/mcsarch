@@ -23,8 +23,8 @@ for user_dir in /mnt/home/*; do
     if [ -d "$user_dir" ]; then
         username=$(basename "$user_dir")
         if arch-chroot /mnt id "$username" >/dev/null 2>&1; then
-            sudo cp -rf /mnt/etc/skel/. "$user_dir/"
-            arch-chroot /mnt chown -R "$username:$username" "$user_dir"
+            sudo cp -rf /mnt/etc/skel/. "/mnt/$user_dir/"
+            arch-chroot /mnt chown -R "$username:$username" "/home/$username"
             arch-chroot /mnt usermod -aG seat,video,input "$username"
         fi
     fi
