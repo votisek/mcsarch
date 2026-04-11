@@ -18,7 +18,9 @@ if [ "$1" != "Plasma" ]; then
     chmod +x /root/mcsarch/hyprlock/install.sh
     chmod +x /root/mcsarch/waybar/install.sh
     chmod +x /root/mcsarch/kitty/install.sh
+    chmod +x /root/mcsarch/grub/install.sh
     /root/mcsarch/hyprlock/install.sh
     /root/mcsarch/waybar/install.sh
     /root/mcsarch/kitty/install.sh
+    /root/mcsarch/grub/install.sh
 fi
