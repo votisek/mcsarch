@@ -2,10 +2,11 @@
 chmod +x /root/mcsarch/sddm/install.sh
 chmod +x /root/mcsarch/waywall/install.sh
 chmod +x /root/mcsarch/prismlauncher/install.sh
+chmod +x /root/mcsarch/grub/install.sh
 /root/mcsarch/sddm/install.sh
 /root/mcsarch/waywall/install.sh
 /root/mcsarch/prismlauncher/install.sh
-arch-chroot /mnt usermod -aG seat,video,input "$USERNAME"
+/root/mcsarch/grub/install.sh
 arch-chroot /mnt systemctl enable seatd
 
 # Packages that everything except KDE will have
@@ -13,17 +14,18 @@ if [ "$1" != "Plasma" ]; then
     chmod +x /root/mcsarch/hyprlock/install.sh
     chmod +x /root/mcsarch/waybar/install.sh
     chmod +x /root/mcsarch/kitty/install.sh
-    chmod +x /root/mcsarch/grub/install.sh
     /root/mcsarch/hyprlock/install.sh
     /root/mcsarch/waybar/install.sh
     /root/mcsarch/kitty/install.sh
-    /root/mcsarch/grub/install.sh
 fi
 
 for user_dir in /mnt/home/*; do
     if [ -d "$user_dir" ]; then
         username=$(basename "$user_dir")
-        sudo cp -rf /mnt/etc/skel/. "$user_dir/"
-        sudo chown -R "$username:$username" "$user_dir"
+        if arch-chroot /mnt id "$username" >/dev/null 2>&1; then
+            sudo cp -rf /mnt/etc/skel/. "$user_dir/"
+            sudo chown -R "$username:$username" "$user_dir"
+            arch-chroot /mnt usermod -aG seat,video,input "$username"
+        fi
     fi
 done
