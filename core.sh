@@ -20,10 +20,10 @@ if [ "$1" != "Plasma" ]; then
     /root/mcsarch/grub/install.sh
 fi
 
-for user_dir in /home/*; do
+for user_dir in /mnt/home/*; do
     if [ -d "$user_dir" ]; then
         username=$(basename "$user_dir")
-        sudo cp -rf /etc/skel/. "$user_dir/"
+        sudo cp -rf /mnt/etc/skel/. "$user_dir/"
         sudo chown -R "$username:$username" "$user_dir"
     fi
 done
