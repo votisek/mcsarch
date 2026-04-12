@@ -49,6 +49,11 @@ test:
 	@qemu-system-x86_64 \
 		-enable-kvm \
 		-m 4G \
+		-cpu host \
+		-smp 2 \
+		-vga none \
+		-device virtio-vga-gl,xres=1920,yres=1080 \
+		-display gtk,gl=on \
 		-drive if=pflash,format=raw,read-only=on,file="$(OVMF)" \
 		-drive file=mcsarch.qcow2,format=qcow2 \
 		-cdrom "$(ISO)" \
