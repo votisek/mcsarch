@@ -2,8 +2,10 @@ gum style --bold "Installing SDDM..."
 gum style --bold "You can preview these themes in the repo."
 theme="$(gum choose --header "Please choose one of these, you can always choose another one." "Jake the dog" "Minecraft" "Minimal" "Sakura" "Japanese Aesthetic")"
 mkdir -p /mnt/usr/share/sddm/themes
+mkdir -p /mnt/usr/share/fonts
 mkdir -p /mnt/etc/sddm.conf.d
 cp -r /root/mcsarch/sddm/themes/* /mnt/usr/share/sddm/themes/
+cp -r /root/mcsarch/sddm/fonts/* /mnt/usr/share/fonts/
 
 case "$theme" in
     "Jake the dog")
