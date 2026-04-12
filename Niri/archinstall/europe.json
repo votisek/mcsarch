@@ -156,8 +156,6 @@
     "packages": [
         "git",
         "niri",
-        "libgbm",
-        "virtio-dri",
         "pixman",
         "mesa",
         "pango",
