@@ -19,7 +19,9 @@
     },
     "custom_commands": [],
     "hostname": "mcsarch",
-    "kernels": [ "linux-lts" ],
+    "kernels": [
+        "linux-lts"
+    ],
     "locale_config": {
         "kb_layout": "us",
         "sys_enc": "UTF-8",
@@ -63,7 +65,9 @@
                 "https://mirror.allthingslinux.org/archlinux/$repo/os/$arch"
             ]
         },
-        "optional_repositories": [ "multilib" ]
+        "optional_repositories": [
+            "multilib"
+        ]
     },
     "ntp": true,
     "network_config": {
@@ -72,6 +76,9 @@
     "packages": [
         "git",
         "niri",
+        "mesa",
+        "pango",
+        "cairo",
         "xdg-desktop-portal-gnome",
         "xdg-desktop-portal-gtk",
         "prismlauncher",
@@ -93,7 +100,6 @@
         "xwayland-satellite",
         "mako",
         "awww"
-
     ],
     "parallel_downloads": 0,
     "profile_config": {

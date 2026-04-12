@@ -19,7 +19,9 @@
     },
     "custom_commands": [],
     "hostname": "mcsarch",
-    "kernels": [ "linux-lts" ],
+    "kernels": [
+        "linux-lts"
+    ],
     "locale_config": {
         "kb_layout": "us",
         "sys_enc": "UTF-8",
@@ -35,7 +37,7 @@
             }
         ],
         "custom_servers": [],
-        "mirror_regions": {   
+        "mirror_regions": {
             "Germany": [
                 "http://ftp.tu-chemnitz.de/pub/linux/archlinux/$repo/os/$arch",
                 "https://ftp.tu-chemnitz.de/pub/linux/archlinux/$repo/os/$arch",
@@ -143,7 +145,9 @@
                 "https://archlinux.roshak.xyz/$repo/os/$arch"
             ]
         },
-        "optional_repositories": [ "multilib" ]
+        "optional_repositories": [
+            "multilib"
+        ]
     },
     "ntp": true,
     "network_config": {
@@ -152,6 +156,9 @@
     "packages": [
         "git",
         "niri",
+        "mesa",
+        "pango",
+        "cairo",
         "xdg-desktop-portal-gnome",
         "xdg-desktop-portal-gtk",
         "prismlauncher",
