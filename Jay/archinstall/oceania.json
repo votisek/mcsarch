@@ -19,7 +19,9 @@
     },
     "custom_commands": [],
     "hostname": "mcsarch",
-    "kernels": [ "linux-lts" ],
+    "kernels": [
+        "linux-lts"
+    ],
     "locale_config": {
         "kb_layout": "us",
         "sys_enc": "UTF-8",
@@ -50,7 +52,9 @@
                 "https://au.arch.niranjan.co/$repo/os/$arch"
             ]
         },
-        "optional_repositories": [ "multilib" ]
+        "optional_repositories": [
+            "multilib"
+        ]
     },
     "ntp": true,
     "network_config": {
@@ -63,6 +67,9 @@
         "prismlauncher",
         "waywall",
         "discord",
+        "pavucontrol",
+        "blueman",
+        "btop",
         "firefox",
         "waybar",
         "hyprlock",
