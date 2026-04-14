@@ -4,6 +4,7 @@ OUTDIR ?= out
 MKARCHISO ?= mkarchiso
 OVMF ?= /usr/share/ovmf/x64/OVMF_CODE.4m.fd
 ISO ?= mcsarch.iso
+DRIVE ?= mcsarch.qcow2
 
 .PHONY: help build clean rebuild
 
@@ -36,16 +37,16 @@ create-drive:
 	@test -d "/usr/share/ovmf/x64" || (echo "OVMF firmware not found. Please install the 'ovmf' package." && exit 1)
 	@which qemu-img >/dev/null 2>&1 || (echo "qemu-img not found. Please install the 'qemu' package." && exit 1)
 	@echo "Creating virtual drive..."
-	@qemu-img create -f qcow2 mcsarch.qcow2 20G
+	@qemu-img create -f qcow2 "$(DRIVE)" 20G
 
 format-drive:
 	@echo "Formatting virtual drive..."
-	@qemu-img create -f qcow2 mcsarch.qcow2 20G
+	@qemu-img create -f qcow2 "$(DRIVE)" 20G
 
 test:
 	@echo "Launching QEMU..."
 	@which qemu-system-x86_64 >/dev/null 2>&1 || (echo "qemu-system-x86_64 not found. Please install the 'qemu' package." && exit 1)
-	@test -f mcsarch.qcow2 || (echo "Virtual drive not found. Please run 'make create-drive' first." && exit 1)
+	@test -f "$(DRIVE)" || (echo "Virtual drive not found. Please run 'make create-drive' first." && exit 1)
 	@qemu-system-x86_64 \
 		-enable-kvm \
 		-m 4G \
@@ -55,6 +56,6 @@ test:
 		-device virtio-vga-gl,xres=1920,yres=1080 \
 		-display gtk,gl=on \
 		-drive if=pflash,format=raw,read-only=on,file="$(OVMF)" \
-		-drive file=mcsarch.qcow2,format=qcow2 \
+		-drive file="$(DRIVE)",format=qcow2 \
 		-cdrom "$(ISO)" \
 		-boot d
