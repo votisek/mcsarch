@@ -92,7 +92,7 @@ logo-shift-Right= "move-right"
 
 ## Applications
 
-logo-Space     = { type = "exec", exec = "kitty" }
+logo-space     = { type = "exec", exec = "kitty" }
 logo-e          = { type = "exec", exec = "thunar" }
 logo-d          = { type = "exec", exec = ["rofi", "-show", "drun"]}
 logo-x          = { type = "exec", exec = ["rofi", "-show", "window"]}
@@ -124,8 +124,7 @@ XF86AudioPrev         = { type = "exec", exec = ["playerctl", "previous"] }
 border-width = 3
 border-color = "#a7c080"
 
-bar-separator-width = 3
-separator-color = "#a7c080"
+show-bar = false
 
 bg-color = "#272e33"
 focused-title-bg-color = "#145e0b"
@@ -146,7 +145,8 @@ on-startup = [
 on-graphics-initialized = [
 	{ type = "exec", exec = ["jay", "input", "seat", "default", "set-cursor-size", "32"] },
 	{ type = "push-mode", name = "default" },
-    { type = "exec", exec = "mako" },
+  { type = "exec", exec = "mako" },
+  { type = "exec", exec = "waybar" },
 ]
 
 ### KEYMAPS ###
