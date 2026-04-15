@@ -27,12 +27,6 @@
     },
     "mirror_config": {
         "custom_repositories": [
-            {
-                "name": "mcsarch",
-                "sign_check": "Optional",
-                "sign_option": "TrustAll",
-                "url": "https://repo.votisek.dev"
-            }
         ],
         "custom_servers": [],
         "mirror_regions": {
