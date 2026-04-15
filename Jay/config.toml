@@ -124,7 +124,8 @@ XF86AudioPrev         = { type = "exec", exec = ["playerctl", "previous"] }
 border-width = 3
 border-color = "#a7c080"
 
-show-bar = false
+bar-position = "bottom"
+bar-bg-color = "#272e33"
 
 bg-color = "#272e33"
 focused-title-bg-color = "#145e0b"
