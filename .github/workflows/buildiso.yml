@@ -3,7 +3,7 @@ name: Build ISO
 on:
   push:
     branches: [ "main" ]
-    paths: ["mcsarch/**"]
+    paths: ["mcsarch/**", ".github/workflows/buildiso.yml"]
   pull_request:
     branches: [ "main" ]
     paths: [ "mcsarch/**" ]
@@ -24,7 +24,7 @@ jobs:
         run: |
           pacman-key --init
           pacman-key --populate archlinux
-          pacman -Syu --noconfirm archiso make
+          pacman -Syu --noconfirm archiso make which
 
       - name: Build ISO
         run: make build
