@@ -71,7 +71,6 @@ def show_menu(
 	items = [
 		'disk_config',
 		'auth_config',
-		'__config___save',
 		'__config___install', 
 		'__config___abort'
 	]
