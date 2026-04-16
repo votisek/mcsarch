@@ -23,13 +23,39 @@ from archinstall.lib.profile.profiles_handler import profile_handler
 from archinstall.lib.translationhandler import tr
 from archinstall.tui.ui.components import tui
 
+from archinstall.lib.disk.disk_menu import select_devices, suggest_single_disk_layout
+from archinstall.lib.models.device import DiskLayoutConfiguration, DiskLayoutType
+from archinstall.lib.models.authentication import AuthenticationConfiguration
+from archinstall.lib.authentication.authentication_menu import select_root_password, select_users
+
+async def fast_disk_picker(preset=None):
+	devices = await select_devices()
+	if not devices:
+		return preset
+	
+	device = devices[0]
+	modification = await suggest_single_disk_layout(device)
+	if modification:
+		return DiskLayoutConfiguration(
+			config_type=DiskLayoutType.Default,
+			device_modifications=[modification]
+		)
+	return preset
+
+async def fast_auth_picker(preset=None):
+	user = await select_users("Select a user to create")
+	if not user:
+		return preset
+	return AuthenticationConfiguration(user[0].password, user)
+	
+
 
 def show_menu(
 	arch_config_handler: ArchConfigHandler,
 	mirror_list_handler: MirrorListHandler,
 ) -> None:
 	upgrade = check_version_upgrade()
-	title_text = 'Archlinux'
+	title_text = 'MCSaRch'
 
 	if upgrade:
 		text = tr('New version available') + f': {upgrade}'
@@ -42,11 +68,28 @@ def show_menu(
 		advanced=arch_config_handler.args.advanced,
 		title=title_text,
 	)
+	items = [
+		'disk_config',
+		'auth_config',
+		'__config___save',
+		'__config___install', 
+		'__config___abort'
+	]
+	
+	for item in global_menu._item_group.items:
+		if item.key == 'disk_config':
+			item.action = fast_disk_picker
+			item.text = "Disk Configuration"
+		if item.key == 'auth_config':
+			item.action = fast_auth_picker
+			item.text = "Authentication"
+	
+	global_menu._item_group.items = [
+        item for item in global_menu._item_group.items 
+        if item.key in items or item.key is None
+    ]
 
 	result: ArchConfig | None = tui.run(global_menu)
-	if result is None:
-		sys.exit(0)
-
 
 def perform_installation(
 	arch_config_handler: ArchConfigHandler,
