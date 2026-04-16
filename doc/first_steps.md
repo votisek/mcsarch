@@ -75,12 +75,10 @@ Then you will get prompted to choose your DM. In short, this is how your desktop
 
 The next step is the actual installation. In here everything is automatically done for you, except for these options:
 
-- **Disk configuration** - Using the arrow keys, locate the Disk configuration option and press enter. Then select the default option (the one that is preselected) 2 times, then using arrows and spacebar select the disk you want to install MCSaRch on, and then press enter (Warning: This will erase all data on the selected disk). Now again select the default option 3 times and go back.
-- **Username and password** - Locate the Authentication option and press enter. First, enter a root password, that is a password to the administrator account. Then, lets add your user account. Press the User account option, and select Add a user. Then enter your username, and password. Make this user a superuser. If you want to make multiple user accounts, repeat the process. If not, click on Confirm and exit -> Back.
+- **Disk configuration** - Locate the Disk configuration option and press enter. Then select the disk you want to install MCSaRch on using the spacebar and press enter. Then select the default options until you get to the start screen.
+- **Username and password** - Locate the Authentication option and press enter. Then enter your desired username and password. If you want, you can make multiple accounts, but that is not recommended.
 
 The only thing remaining is to install it by selecting Install and confirming it. The installation process will take 5-20 minutes depending on your internet speed.
-
-Once the installation is done, do not reboot. Instead, we need to do some post-installation config handled by the install script. So, select "Continue without rebooting" and press enter.
 
 Now, you are gonna select the themes for a few programs. You can preview those [here](https://github.com/votisek/mcsarch/blob/main/doc/config_prevs.md)
 
