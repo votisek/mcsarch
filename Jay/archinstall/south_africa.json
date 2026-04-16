@@ -77,7 +77,8 @@
         "nvidia-open",
         "kitty",
         "rofi",
-        "mako"
+        "mako",
+        "awww"
     ],
     "parallel_downloads": 0,
     "profile_config": {
