@@ -1,0 +1,10 @@
+NAME="MCSaRch"
+PRETTY_NAME="MCSaRch"
+ID=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;"
+HOME_URL="https://mcsarch.votisek.dev"
+DOCUMENTATION_URL="https://github.com/votisek/mcsarch/tree/main/doc"
+SUPPORT_URL="https://discord.gg/SYbDDaHyua"
+BUG_REPORT_URL="https://github.com/votisek/mcsarch/issues"
+LOGO=mcsarch-logo
