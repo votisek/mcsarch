@@ -55,7 +55,7 @@
     },
     "packages": [
         "git",
-        "jay",
+        
         "rustup",
         "prismlauncher",
         "waywall",

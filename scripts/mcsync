@@ -1,0 +1,32 @@
+#!/usr/bin/bash
+
+case "$1" in
+    help)
+        echo "Usage: mcsync [help|hotbar|options|sync]"
+        echo "  help    - Show this help message"
+        echo "  hotbar  - Start using the hotbar.nbt file found in current instance"
+        echo "  options - Start using the options.txt file found in current instance"
+        echo "  sync    - Synchronize files"
+        ;;
+    hotbar)
+        echo "Copying hotbar.nbt to mcsync..."
+        cp ./minecraft/hotbar.nbt ~/.config/mcsr
+        ;;
+    options)        
+        echo "Copying options.txt to mcsync..."
+        cp ./minecraft/options.txt ~/.config/mcsr
+        ;;
+    sync)
+        if [ -z "$2" ]; then
+            echo "Error: sync requires a second argument (path)"
+            exit 1
+        fi
+        ln -sf ~/.config/mcsr/options.txt $2/minecraft
+        ln -sf ~/.config/mcsr/hotbar.nbt $2/minecraft
+        ;;
+    *)
+        echo "Unknown argument: $1"
+        echo "Use 'mcsync help' for usage information"
+        exit 1
+        ;;
+esac
