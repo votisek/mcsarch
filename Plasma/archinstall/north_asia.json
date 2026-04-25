@@ -62,7 +62,7 @@
     },
     "packages": [
         "git",
-        "plasma-desktop",
+        "plasma-meta",
         "prismlauncher",
         "waywall",
         "code",
