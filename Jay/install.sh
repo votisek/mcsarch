@@ -1,5 +1,5 @@
 gum style --bold "Installing Jay..."
-arch-chroot /mnt yay -S --no-confirm jay-git
+arch-chroot /mnt yay -S --no-confirm aur/jay-git
 
 gum style --bold "Copying Jay config to new system..."
 arch-chroot /mnt mkdir -p /etc/skel/.config/jay
