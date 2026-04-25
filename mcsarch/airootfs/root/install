@@ -85,6 +85,14 @@ timezone=$(curl -s https://ipapi.co/timezone)
 jq --arg timezone "$timezone" '.timezone = $timezone' "$dm/archinstall/$region.json" > /tmp/temp.json
 mv /tmp/temp.json $dm/archinstall/$region.json
 
+if lspci | grep -E "NVIDIA|GeForce" &> /dev/null; then
+    gpudriver="nvidia-open"
+else
+    gpudriver="mesa"
+fi
+jq --arg gpudriver "$gpudriver" '.packages += $gpudriver' "$dm/archinstall/$region.json" > /tmp/temp.json
+mv /tmp/temp.json $dm/archinstall/$region.json
+
 if python3 /root/mcsarch/guided.py --config $dm/archinstall/$region.json; then
     gum style --bold "OS installation complete! Starting desktop environment installation..."
 else
