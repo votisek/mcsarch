@@ -18,8 +18,11 @@ if (( ${#packages[@]} == 0 )); then
   exit 1
 fi
 
+echo "Recreating repository database to ensure no old packages remain in the index..."
+rm -f x86_64/mcsarch.db.tar.gz x86_64/mcsarch.files.tar.gz x86_64/*.old
+
 echo "Adding packages..."
-repo-add x86_64/mcsarch.db.tar.gz "${packages[@]}"
+repo-add -R x86_64/mcsarch.db.tar.gz "${packages[@]}"
 rm -f x86_64/*.tar.gz.old
 
 rm -f x86_64/mcsarch.db x86_64/mcsarch.files
