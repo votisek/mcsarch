@@ -148,6 +148,7 @@ on-graphics-initialized = [
 	{ type = "push-mode", name = "default" },
   { type = "exec", exec = "mako" },
   { type = "exec", exec = "waybar" },
+  { type = "exec", exec = "awww-daemon" },
 ]
 
 ### KEYMAPS ###

@@ -29,3 +29,8 @@ for user_dir in /mnt/home/*; do
         fi
     fi
 done
+
+# other misc scripts
+rm /mnt/etc/os-release && cp /root/mcsarch/misc/os-release /mnt/etc/os-release # os release so fastfetch name is cool
+chmod +x /root/mcsarch/scripts/* 
+cp /root/mcsarch/scripts/* /mnt/usr/local/bin/ # misc scripts for user

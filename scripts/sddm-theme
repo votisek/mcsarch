@@ -1,0 +1,25 @@
+#!/usr/bin/bash
+
+theme=$(gum choose --header "What theme do you want to use for SDDM?" "Jake the dog" "Minecraft" "Minimal" "Sakura" "Japanese Aesthetic")
+
+case "$theme" in
+    "Jake the dog")
+        theme_name="jake-the-dog"
+        ;;
+    "Minecraft")
+        theme_name="minecraft"
+        ;;
+    "Minimal")
+        theme_name="minimal"
+        ;;
+    "Sakura")
+        theme_name="sakura"
+        ;;
+    "Japanese Aesthetic")
+        theme_name="japanese-aesthetic"
+        ;;
+esac
+
+sudo printf "[Theme]\nCurrent=%s\n" "$theme_name" > /etc/sddm.conf.d/theme.conf
+
+gum style --bold "Done!"

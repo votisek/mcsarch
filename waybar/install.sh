@@ -1,5 +1,4 @@
-
-gum style --bold "Configuruing waybar..."
+gum style --bold "Configuring waybar..."
 arch-chroot /mnt mkdir -p /etc/skel/.config/waybar
 theme=$(gum choose --header "Please choose one of these color themes:" "Dracula" "Everforest")
 cp /root/mcsarch/waybar/* /mnt/etc/skel/.config/waybar -r

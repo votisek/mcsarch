@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+gum style --bold "Configuring waybar..."
+theme=$(gum choose --header "Please choose one of these color themes:" "Dracula" "Everforest")
+
+sed -i "1i @import 'themes/$theme.css';" $USER/.config/waybar/style.css
+gum style --bold "Done!"
