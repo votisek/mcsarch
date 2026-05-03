@@ -1,103 +1,108 @@
 #!/usr/bin/env bash
-if  ping -c 1 1.1.1.1 &> /dev/null; then
-    gum style --bold "Downloading latest configurations..."
-    mkdir -p ./mcsarch/ 
-    git clone --single-branch --branch config https://github.com/votisek/mcsarch.git ./mcsarch/ &> /dev/null
+if ping -c 1 1.1.1.1 &>/dev/null; then
+  gum style --bold "Downloading latest configurations..."
+  rm -rf ./mcsarch/
+  mkdir -p ./mcsarch/
+  git clone --single-branch --branch config https://github.com/votisek/mcsarch.git ./mcsarch/ &>/dev/null
 else
-    gum style --bold --foreground "red" "No internet connection. Please connect to the internet and try again."
-    exit 1
+  gum style --bold --foreground "red" "No internet connection. Please connect to the internet and try again."
+  exit 1
 fi
 
 gum style --bold "This script will install the MCSArch Linux system on your computer. Please make sure you have backed up any important data before proceeding."
 
 if ! gum confirm --affirmative="Continue" --negative="Exit"; then
-    echo "Once you are ready, run install again."
-    exit 0
+  echo "Once you are ready, run install again."
+  exit 0
 fi
 
 while true; do
-    region=$(gum choose --header "Select your region:" "North America (Canada)" "South America (Brazil)" "Europe (Germany)" "North Asia (Russia)" "South Asia (India)" "North Africa (Morroco) " "South Africa (South African Republic)" "Oceania (Australia)")
+  region=$(gum choose --header "Select your region:" "North America (Canada)" "South America (Brazil)" "Europe (Germany)" "North Asia (Russia)" "South Asia (India)" "North Africa (Morroco) " "South Africa (South African Republic)" "Oceania (Australia)")
 
-    gum style --bold "You chose $region."
-    if gum confirm "Is it correct?"; then
-        break
-    fi
+  gum style --bold "You chose $region."
+  if gum confirm "Is it correct?"; then
+    break
+  fi
 done
 
 case $region in
-    "North America (Canada)")
-        region="north_america"
-        ;;
-    "South America (Brazil)")
-        region="south_america"
-        ;;
-    "Europe (Germany)")
-        region="europe"
-        ;;
-    "North Asia (Russia)")
-        region="north_asia"
-        ;;
-    "South Asia (India)")
-        region="south_asia"
-        ;;
-    "North Africa (Morroco) ")
-        region="north_africa"
-        ;;
-    "South Africa (South African Republic)")
-        region="south_africa"
-        ;;
-    "Oceania (Australia)")
-        region="oceania"
-        ;;
+"North America (Canada)")
+  region="north_america"
+  ;;
+"South America (Brazil)")
+  region="south_america"
+  ;;
+"Europe (Germany)")
+  region="europe"
+  ;;
+"North Asia (Russia)")
+  region="north_asia"
+  ;;
+"South Asia (India)")
+  region="south_asia"
+  ;;
+"North Africa (Morroco) ")
+  region="north_africa"
+  ;;
+"South Africa (South African Republic)")
+  region="south_africa"
+  ;;
+"Oceania (Australia)")
+  region="oceania"
+  ;;
 esac
 
 gum style --bold "Select your desktop environment. Choose from the following options. Descriptions for each option can be seen in the Github repo."
 while true; do
-    dm=$(gum choose "Plasma (Recommended)" "Jay" "Niri" --header "Select your preferred desktop environment:" )
-    
-    gum style --bold "You chose $dm."
+  dm=$(gum choose "Plasma (Recommended)" "Jay" "Niri" --header "Select your preferred desktop environment:")
 
-    if gum confirm "Is it correct?"; then
-        if [ "$dm" == "Plasma (Recommended)" ]; then
-            dm="Plasma"
-        fi
-        break
+  gum style --bold "You chose $dm."
+
+  if gum confirm "Is it correct?"; then
+    if [ "$dm" == "Plasma (Recommended)" ]; then
+      dm="Plasma"
     fi
+    break
+  fi
 done
-
 
 echo ""
 
 gum style --bold "Installing $dm..."
 
-cp -r ./mcsarch/$dm/ .
+rm -rf "./$dm"
+cp -r "./mcsarch/$dm" .
 gum style --bold --align "center" --foreground "red" "After going through the installation wizard, DO NOT REBOOT, there are additional installation steps."
 gum style --bold --align "right" --foreground "red" "We are unable to control the wizard to disable the option at this stage of the project."
 gum style --bold "Starting the main OS installation, press ENTER to proceed..."
-read 
+read
 
-if hostnamectl chassis | grep "desktop" &> /dev/null; then
-    jq '.kernels = ["linux-zen"]' "$dm/archinstall/$region.json" > /tmp/temp.json
-    mv /tmp/temp.json $dm/archinstall/$region.json
+if hostnamectl chassis | grep -qi "desktop"; then
+  kernel="linux-zen"
+else
+  kernel="linux-lts"
 fi
 
 timezone=$(curl -s https://ipapi.co/timezone)
-jq --arg timezone "$timezone" '.timezone = $timezone' "$dm/archinstall/$region.json" > /tmp/temp.json
-mv /tmp/temp.json $dm/archinstall/$region.json
 
-if lspci | grep -E "NVIDIA|GeForce" &> /dev/null; then
-    gpudriver="nvidia-open"
+if lspci | grep -Ei "NVIDIA|GeForce" &>/dev/null; then
+  gpudriver="nvidia-open"
 else
-    gpudriver="mesa"
+  gpudriver="mesa"
 fi
-jq --arg gpudriver "$gpudriver" '.packages += $gpudriver' "$dm/archinstall/$region.json" > /tmp/temp.json
-mv /tmp/temp.json $dm/archinstall/$region.json
 
-if python3 /root/mcsarch/guided.py --config $dm/archinstall/$region.json; then
-    gum style --bold "OS installation complete! Starting desktop environment installation..."
+jq --arg timezone "$timezone" \
+  --arg gpudriver "$gpudriver" \
+  --arg kernel "$kernel" \
+  '.timezone = $timezone | .kernels = [$kernel] | .packages += [$gpudriver] | .packages |= unique' \
+  "$dm/archinstall/$region.json" >/tmp/temp.json
+mv /tmp/temp.json "$dm/archinstall/$region.json"
+
+if python3 /root/mcsarch.py --config $dm/archinstall/$region.json; then
+  gum style --bold "OS installation complete! Starting desktop environment installation..."
 else
-    gum style --bold --foreground "red" "OS installation failed. Please check the error messages above and try again."
-    exit 1
+  gum style --bold --foreground "red" "OS installation failed. Please check the error messages above and try again."
+  exit 1
 fi
 
 chmod +x $dm/install.sh

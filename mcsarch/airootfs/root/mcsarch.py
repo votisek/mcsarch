@@ -46,6 +46,10 @@ async def fast_auth_picker(preset=None):
 	user = await select_users("Select a user to create")
 	if not user:
 		return preset
+
+	with open('/root/username', 'w') as f:
+		f.write(user[0].username)
+
 	return AuthenticationConfiguration(user[0].password, user)
 	
 
