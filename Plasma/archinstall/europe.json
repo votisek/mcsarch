@@ -147,6 +147,7 @@
         "git",
         "plasma-meta",
         "prismlauncher",
+        "jdk21-openjdk",
         "waywall",
         "code",
         "discord",

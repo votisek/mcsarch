@@ -152,6 +152,7 @@
         
         "rustup",
         "prismlauncher",
+        "jdk21-openjdk",
         "waywall",
         "code",
         "discord",
