@@ -87,6 +87,12 @@ timezone=$(curl -s https://ipapi.co/timezone)
 
 if lspci | grep -Ei "NVIDIA|GeForce" &>/dev/null; then
   gpudriver="nvidia-open"
+elif lspci | grep "NVIDIA Corporation TU" &>/dev/null; then
+  if kernel == "linux-zen"; then
+    gpudriver="nvidia-dkms"
+  else
+    gpudriver="nvidia-lts"
+  fi
 else
   gpudriver="mesa"
 fi
