@@ -20,7 +20,7 @@
     "custom_commands": [],
     "hostname": "mcsarch",
     "kernels": [
-        "linux-lts"
+        "linux"
     ],
     "locale_config": {
         "kb_layout": "us",
