@@ -77,12 +77,6 @@ gum style --bold --align "right" --foreground "red" "We are unable to control th
 gum style --bold "Starting the main OS installation, press ENTER to proceed..."
 read
 
-if hostnamectl chassis | grep -qi "desktop"; then
-  kernel="linux-zen"
-else
-  kernel="linux-lts"
-fi
-
 timezone=$(curl -s https://ipapi.co/timezone)
 
 if lspci | grep -Ei "NVIDIA|GeForce" &>/dev/null; then
@@ -99,8 +93,7 @@ fi
 
 jq --arg timezone "$timezone" \
   --arg gpudriver "$gpudriver" \
-  --arg kernel "$kernel" \
-  '.timezone = $timezone | .kernels = [$kernel] | .packages += [$gpudriver] | .packages |= unique' \
+  '.timezone = $timezone | .packages += [$gpudriver] | .packages |= unique' \
   "$dm/archinstall/$region.json" >/tmp/temp.json
 mv /tmp/temp.json "$dm/archinstall/$region.json"
 
